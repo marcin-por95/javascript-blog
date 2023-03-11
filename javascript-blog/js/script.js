@@ -1,4 +1,4 @@
-
+{ 'use strict';
 const titleClickHandler = function(event){
     console.log('Link was clicked!');
     /* [DONE] remove class 'active' from all article links  */
@@ -27,7 +27,5 @@ const titleClickHandler = function(event){
     targetArticle.classList.add('active');
 }
 
-const links = document.querySelectorAll('.titles a');
-for (let link of links) {
-    link.addEventListener('click', titleClickHandler);
+    generateTitleLinks();
 }
