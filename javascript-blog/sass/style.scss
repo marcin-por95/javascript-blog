@@ -48,10 +48,34 @@ body {
   margin-left: 10px;
 }
 
-.sidebar {
-  flex: 1 0 0;
+.sidebar .tags {
+  display: inline-block;
+  .tag-size-1 {
+    font-size: 70%;
+    color: rgb(212, 11, 11);
+    text-decoration: none;    
+  }
+  .tag-size-2 {
+    font-size: 90%;
+    color: blueviolet;
+    text-decoration: none;
+  }
+  .tag-size-3 {
+    font-size:140%;
+    color: rgb(7, 5, 2);
+    text-decoration: none;
+  }
+  .tag-size-4 {
+    font-size: 180%;
+    color: brown;
+    text-decoration: none;
+  }
+  .tag-size-5 {
+    font-size: 200%;
+    color: rgb(217, 214, 40);
+    text-decoration: none;
+  }
 }
-
 .posts {
   flex: 2 0 0;
 }
@@ -87,6 +111,7 @@ body {
 
 .list-horizontal {
   li {
+ 
     display: inline-block;
   }
 }
