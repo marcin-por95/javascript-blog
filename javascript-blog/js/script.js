@@ -1,3 +1,11 @@
+const templates = {
+  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+  tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
+  tagLink: Handlebars.compile(document.querySelector('#template-article-tag').innerHTML),
+  authorLink: Handlebars.compile(document.querySelector('#template-article-author').innerHTML),
+  authorCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-author').innerHTML),
+
+};
 const optArticleSelector = '.post';
 const optTitleSelector = '.post-title';
 const optTitleListSelector = '.titles';
@@ -43,7 +51,10 @@ function generateTitleLinks(customSelector = '') {
     /* get the title from the title element */
     const articleTitle = article.querySelector(optTitleSelector).innerHTML;
     /* create HTML of the link */
-    const linkHTML = `<li><a href="#${id}"><span>${articleTitle}</span></a></li>`;
+
+    
+    const linkHTMLData = {id: article.id, title: articleTitle};
+const linkHTML = templates.articleLink(linkHTMLData);
 
     /* insert link into titleList */
     titleList.insertAdjacentHTML("beforeend", linkHTML);
@@ -138,8 +149,11 @@ function generateTags() {
     /* [NEW] END LOOP: for each tag in allTags: */
 
     /*[NEW] add HTML from allTagsHTML to tagList */
-    tagList.innerHTML = allTagsHTML;
+   
+    tagList.innerHTML = templates.tagCloudLink(allTags);
   }
+ 
+
 }
 function tagClickHandler(event) {
   /* [done]prevent default action for this event */
@@ -215,8 +229,8 @@ function generateAuthors() {
     for (let author in authors) {
       allAuthorsHTML += `<li><a href="#${author}">${author} (${authors[author]})</a></li>`;
     }
-    authorList.innerHTML = allAuthorsHTML;
-
+    
+    authorList.innerHTML = templates.authorCloudLink(allAuthorsHTML);
   }
 }
 function authorClickedHandler(event) {
