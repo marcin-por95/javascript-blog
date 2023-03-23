@@ -229,18 +229,19 @@ function generateAuthors() {
       link.addEventListener('click', authorClickedHandler);
     }
     const authorList = document.querySelector(optAuthorListSelector);
-
     const allAuthor = {author: []};
-
+    /* [DONE] [NEW] START LOOP: for each author in allAuthors: */
     for(let author in authors){
       /* [DONE] [NEW] generate code of a link and add it to allAuthorsHTML */
       allAuthor.author.push({ 
         author: author, 
-        count: allAuthor[allAuthor] 
+        count: allAuthor[dataAuthor]
       });             
+      /* [DONE] [NEW] END LOOP: for each author in allAuthors: */
     }
+    /* [DONE] [NEW] add HTML from allAuthorsHTML to authorsList */
     authorList.innerHTML = templates.authorCloudLink(allAuthor);
-  }
+}
 }
 function authorClickedHandler(event) {
   event.preventDefault();
