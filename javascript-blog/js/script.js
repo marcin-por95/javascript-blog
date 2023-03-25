@@ -235,8 +235,8 @@ function generateAuthors() {
       /* [DONE] [NEW] generate code of a link and add it to allAuthorsHTML */
       allAuthor.author.push({ 
         author: author, 
-        count: allAuthor[dataAuthor]
-      });             
+        count: authors[author]
+      });           
       /* [DONE] [NEW] END LOOP: for each author in allAuthors: */
     }
     /* [DONE] [NEW] add HTML from allAuthorsHTML to authorsList */
